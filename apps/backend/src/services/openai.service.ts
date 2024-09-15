@@ -3,9 +3,15 @@ import { openAIHelper } from '@/server';
 import { isBase64Image } from '@/utils/data';
 import { Service } from 'typedi';
 
+interface ValidationResult {
+  validityFactor: number;
+  amount: number;
+  descriptionOfAnalysis: string;
+}
+
 @Service()
 export class OpenaiService {
-  public async validateImage(image: string): Promise<unknown> {
+  public async validateImage(image: string): Promise<ValidationResult> {
     if (!isBase64Image(image)) throw new HttpException(400, 'Invalid image format');
 
     const prompt = `

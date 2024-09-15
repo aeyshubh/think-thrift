@@ -13,20 +13,19 @@ export class SubmissionController {
     try {
       const body: Omit<Submission, 'timestamp'> = req.body;
       const validationResult = await this.openai.validateImage(body.image);
-      const validityFactor = (validationResult as object)?.validityFactor;
-      const amount = (validationResult as object)?.amount;
+      const validityFactor = validationResult?.validityFactor;
+      const amount = validationResult?.amount;
       let submissionRequest: Submission;
-      if(validityFactor > 0.5){
-       submissionRequest = {
-        ...body,
-        amount: amount,
-        timestamp: Date.now(),
-      };
-      // Submission validation with smart contract
-      await this.contracts.validateSubmission(submissionRequest);
-    }
-      else{
-         submissionRequest = {
+      if (validityFactor > 0.5) {
+        submissionRequest = {
+          ...body,
+          amount: amount,
+          timestamp: Date.now(),
+        };
+        // Submission validation with smart contract
+        await this.contracts.validateSubmission(submissionRequest);
+      } else {
+        submissionRequest = {
           ...body,
           amount: 0,
           timestamp: Date.now(),
@@ -34,13 +33,12 @@ export class SubmissionController {
         // Submission validation with smart contract
         await this.contracts.validateSubmission(submissionRequest);
       }
-     
 
       if (validationResult == undefined || !('validityFactor' in (validationResult as object))) {
         throw new HttpException(500, 'Error validating image');
       }
 
-      const descriptionOfAnalysis = (validationResult as object)?.descriptionOfAnalysis;
+      const descriptionOfAnalysis = validationResult?.descriptionOfAnalysis;
       console.log('validityFactor', validityFactor);
       console.log('amount', amount);
       console.log('descriptionOfAnalysis', descriptionOfAnalysis);
@@ -50,7 +48,7 @@ export class SubmissionController {
         }
       }
 
-      res.status(200).json({ validation: {descriptionOfAnalysis:descriptionOfAnalysis,amount:amount,validityFactor:validityFactor} });
+      res.status(200).json({ validation: { descriptionOfAnalysis: descriptionOfAnalysis, amount: amount, validityFactor: validityFactor } });
     } catch (error) {
       next(error);
       return;

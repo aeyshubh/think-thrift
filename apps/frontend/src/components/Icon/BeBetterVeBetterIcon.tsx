@@ -9,9 +9,7 @@ type Props = {
 /**
  * BeBetterVeBetterIcon displays the BeBetterVeBetter logo
  */
-export const BeBetterVeBetterIcon: React.FC<Props> = ({
-  beBetterProps,
-}) => (
+export const BeBetterVeBetterIcon: React.FC<Props> = ({ beBetterProps }) => (
   <VStack spacing={2} align="flex-start" w="full">
     <Image src="/logo.png" {...beBetterProps} />
   </VStack>

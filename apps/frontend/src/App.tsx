@@ -1,5 +1,5 @@
 import { DAppKitProvider } from "@vechain/dapp-kit-react";
-import { ChakraProvider, Container, Flex} from "@chakra-ui/react";
+import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
 import {
   Footer,
   InfoCard,
@@ -8,7 +8,6 @@ import {
   SubmissionModal,
 } from "./components";
 import { lightTheme } from "./theme";
-
 
 function App() {
   return (
@@ -21,9 +20,8 @@ function App() {
         logLevel={"DEBUG"}
       >
         <Navbar />
-        
-        {/* Add the marquee here */}
 
+        {/* Add the marquee here */}
 
         <Flex flex={1}>
           <Container

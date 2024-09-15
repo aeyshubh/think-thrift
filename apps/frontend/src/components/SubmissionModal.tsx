@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Modal,
   ModalContent,
@@ -12,7 +12,7 @@ import loaderAnimation from "../assets/lottie/loader-json.json";
 import Lottie from "react-lottie";
 import { AirdropIcon, AlertIcon } from "./Icon";
 import { useMemo } from "react";
-import Confetti from 'react-confetti';
+import Confetti from "react-confetti";
 
 export const SubmissionModal = () => {
   const { isLoading, response } = useSubmission();
@@ -29,9 +29,8 @@ export const SubmissionModal = () => {
 
   const renderContent = useMemo(() => {
     const isValid = response?.validation.validityFactor === 1;
-    const amount = response?.validation.amount;
-    //@ts-ignore
-    let rewardAmount = Math.abs(amount * 0.1);
+    const amount = response?.validation.amount ?? 0;
+    const rewardAmount = Math.abs(amount * 0.1);
     return isValid ? (
       <VStack
         bg="black"
@@ -41,14 +40,14 @@ export const SubmissionModal = () => {
         justifyContent={"center"}
         alignItems={"center"}
         position="relative"
-        overflow="hidden"  // Add this line
+        overflow="hidden" // Add this line
       >
         {showConfetti && (
           <Confetti
-            width={400}  // Set a fixed width
-            height={400}  // Set a fixed height
+            width={400} // Set a fixed width
+            height={400} // Set a fixed height
             style={{
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               left: 0,
             }}
@@ -60,15 +59,24 @@ export const SubmissionModal = () => {
           Congratulations!
         </Text>
         <HStack>
-        
-          <Text fontSize={24} fontWeight={400} textAlign={"center"} color={"F5EDCE"}>
-          
-            You've earned <Text as="span" color="#58287F" fontWeight={700}>{rewardAmount} $B3TR</Text> tokens on your purchase of <Text as="span" color="#58287F" fontWeight={700}>${amount}</Text>!
-          
+          <Text
+            fontSize={24}
+            fontWeight={400}
+            textAlign={"center"}
+            color={"F5EDCE"}
+          >
+            You've earned{" "}
+            <Text as="span" color="#58287F" fontWeight={700}>
+              {rewardAmount} $B3TR
+            </Text>{" "}
+            tokens on your purchase of{" "}
+            <Text as="span" color="#58287F" fontWeight={700}>
+              ${amount}
+            </Text>
+            !
           </Text>
         </HStack>
       </VStack>
-      
     ) : (
       <VStack
         bg="black"

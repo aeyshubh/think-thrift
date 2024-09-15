@@ -1,4 +1,4 @@
-# Development Environment 
+# Development Environment
 
 Get a local development environment up and running with as few steps as possible.
 
@@ -20,12 +20,12 @@ OPENAI_API_KEY=process.env.OPENAI_API_KEY
 
 ## Result
 
-Link | Service 
---- | ---
-http://localhost:8082 | Frontend
-http://localhost:3000 | Backend
-http://localhost:8081 | Inspector
-http://localhost:8669 | Solo Thor
+| Link                  | Service   |
+| --------------------- | --------- |
+| http://localhost:8082 | Frontend  |
+| http://localhost:3000 | Backend   |
+| http://localhost:8081 | Inspector |
+| http://localhost:8669 | Solo Thor |
 
 Deployed contracts documented in: [packages/config-contract/config.ts](packages/config-contract/config.ts)
 

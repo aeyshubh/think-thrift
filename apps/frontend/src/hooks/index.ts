@@ -1,3 +1,3 @@
 export * from "./useSubmission";
 export * from "./useDisclosure";
-export { useWindowSize } from './useWindowSize';
+export { useWindowSize } from "./useWindowSize";

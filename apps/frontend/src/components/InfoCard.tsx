@@ -6,7 +6,7 @@ import {
   Text,
   Flex,
   UnorderedList,
-  ListItem
+  ListItem,
 } from "@chakra-ui/react";
 
 export const InfoCard = () => {
@@ -19,7 +19,9 @@ export const InfoCard = () => {
               Why Shop Thrift?
             </Text>
             <Text>
-              Fashion industry produces <b>2.7% of global CO2</b> emissions (<b>1.2 Bn tonnes</b>). Shop thrift to reduce your carbon footprint.
+              Fashion industry produces <b>2.7% of global CO2</b> emissions (
+              <b>1.2 Bn tonnes</b>). Shop thrift to reduce your carbon
+              footprint.
             </Text>
             <UnorderedList pl={4} spacing={1}>
               <ListItem>Reduce waste and carbon footprint</ListItem>
@@ -27,13 +29,13 @@ export const InfoCard = () => {
               <ListItem>Find unique, one-of-a-kind pieces</ListItem>
               <ListItem>Save money while being eco-friendly</ListItem>
             </UnorderedList>
-            <Image 
-              src="/levis.png" 
-              alt="Levi's" 
-              w="120%" 
-              h="auto" 
-              maxH="250px" 
-              objectFit="contain" 
+            <Image
+              src="/levis.png"
+              alt="Levi's"
+              w="120%"
+              h="auto"
+              maxH="250px"
+              objectFit="contain"
             />
           </VStack>
         </VStack>
@@ -41,7 +43,13 @@ export const InfoCard = () => {
 
       <Card flex={1}>
         <Box p={3}>
-          <Image src="/meme.png" borderRadius={16} w="full" h="auto" objectFit="cover" />
+          <Image
+            src="/meme.png"
+            borderRadius={16}
+            w="full"
+            h="auto"
+            objectFit="cover"
+          />
         </Box>
       </Card>
     </Flex>

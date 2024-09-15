@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { extendTheme } from "@chakra-ui/react";
 import { lightThemeColors } from "./colors";
 import { cardTheme } from "./card";
@@ -93,26 +92,26 @@ export const lightTheme = extendTheme({
       ...cardTheme,
       variants: {
         ...cardTheme.variants,
-        base: (props) => ({
+        base: () => ({
           container: {
             bg: "linear-gradient(to bottom right, #1A1A1A, #2D2D2F)",
             borderWidth: "1px",
             borderColor: "#2D2D2F",
           },
         }),
-        filled: (props) => ({
+        filled: () => ({
           container: {
             bg: "linear-gradient(to bottom right, #2D2D2F, #3A3A3C)",
           },
         }),
-        baseWithBorder: (props) => ({
+        baseWithBorder: () => ({
           container: {
             bg: "linear-gradient(to bottom right, #1A1A1A, #2D2D2F)",
             borderWidth: "1px",
             borderColor: "#2D2D2F",
           },
         }),
-        secondaryBoxShadow: (props) => ({
+        secondaryBoxShadow: () => ({
           container: {
             boxShadow: "inset 0px 0px 100px 5px rgba(76, 94, 255, 0.3)", // Adjusted to blue
             bg: "linear-gradient(to bottom right, #1A1A1A, #2D2D2F)",
